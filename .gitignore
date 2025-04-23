@@ -1,0 +1,20 @@
+# Thư mục trạng thái và file lock
+.terraform/
+.terraform.lock.hcl
+
+# File trạng thái Terraform
+terraform.tfstate
+terraform.tfstate.backup
+*.tfstate
+*.tfstate.*
+
+# File override và biến cục bộ
+*.tfvars
+*.tfvars.json
+
+# File log (nếu có)
+crash.log
+*.log
+
+# Thư mục .terraform-plugin
+.terraform-plugin-cache/

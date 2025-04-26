@@ -19,5 +19,4 @@ crash.log
 # Thư mục .terraform-plugin
 .terraform-plugin-cache/
 
-./keypair
-đói quá vậy giúp nhe
+/keypair

@@ -1,12 +1,4 @@
-resource "aws_security_group" "default_vpc" {
-  name = "default-vpc-sg"
-  description = "Default VPC security group"
-  vpc_id = var.vpc_id
-  
-  tags = {
-    Name = "default-vpc-sg"
-  }
-}
+
 resource "aws_security_group" "public_ec2_sg" {
   name        = "public-ec2-sg"
   description = "Allow SSH from specific IP"
@@ -17,7 +9,7 @@ resource "aws_security_group" "public_ec2_sg" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = [var.your_ip]
+    cidr_blocks = [var.allowed_ssh_ip]
   }
 
   egress {

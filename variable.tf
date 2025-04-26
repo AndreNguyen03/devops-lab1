@@ -1,11 +1,11 @@
-variable "region" {
+variable "aws_region" {
   type = string
   default     = "ap-southeast-1"
   description = "The AWS region where all resources will be deployed (e.g., ap-southeast-1 for Singapore)"
 }
 
 
-variable "vpc_cidr" {
+variable "vpc_cidr_block" {
   type        = string
   description = "The CIDR block for the VPC (e.g., 10.0.0.0/16)"
 }
@@ -23,7 +23,7 @@ variable "private_subnet_cidrs" {
 }
 
 
-variable "your_ip" {
+variable "allowed_ssh_ip" {
   type        = string
   description = "Your public IP address in CIDR format (e.g., 123.45.67.89/32) for SSH access"
 }

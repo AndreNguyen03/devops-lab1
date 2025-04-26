@@ -3,7 +3,7 @@ variable "vpc_id" {
   description = "The id of the VPC where the security groups will be created"
 }
 
-variable "your_ip" {
+variable "allowed_ssh_ip" {
   type        = string
   description = "Your public IP address in CIDR format to allow SSH access to public EC2 instance"
 }

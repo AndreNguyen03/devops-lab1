@@ -9,7 +9,6 @@ terraform.tfstate.backup
 *.tfstate.*
 
 # File override và biến cục bộ
-*.tfvars
 *.tfvars.json
 
 # File log (nếu có)

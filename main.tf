@@ -43,6 +43,7 @@ module "compute" {
   private_subnet_id = module.vpc.private_subnet_ids[0]
   public_sg_id      = module.security.public_sg_id.id
   private_sg_id     = module.security.private_sg_id.id
+  restricted_sg_id = module.security.restricted_sg_id.id
 }
 
 module "security" {

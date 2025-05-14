@@ -1,9 +1,32 @@
+resource "aws_security_group" "restricted_sg" {
+  name        = "restricted-sg"
+  description = "Security group with restricted traffic"
+  vpc_id      = var.vpc_id
+
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = [var.allowed_ssh_ip]  # Cấu hình các nguồn IP đáng tin cậy
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]  # Cho phép tất cả traffic đi ra
+  }
+
+  tags = {
+    Name = "restricted-sg"
+  }
+}
+
 
 resource "aws_security_group" "public_ec2_sg" {
   name        = "public-ec2-sg"
   description = "Allow SSH from specific IP"
   vpc_id      = var.vpc_id
-
 
   ingress {
     from_port   = 22

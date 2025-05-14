@@ -21,9 +21,6 @@ jobs:
       - name: Install Checkov
         run: pip install checkov
 
-      - name: Run Checkov
-        run: checkov -d . --quiet --skip-check CKV2_AWS_11
-
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
         with:
@@ -31,6 +28,9 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
+
+      - name: Run Checkov
+        run: checkov -d . --quiet --skip-check CKV2_AWS_11
 
       - name: Terraform Format Check
         run: terraform fmt -check -recursive

@@ -35,6 +35,11 @@ variable "private_sg_id" {
   description = "The ID of the security group for the private EC2 instance"
 }
 
+variable "restricted_sg_id" {
+  type        = string
+  description = "The ID of the restricted security group for the instance"
+}
+
 variable "key_name" {
   type        = string
   description = "Keyname for the EC2 instances"

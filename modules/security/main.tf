@@ -10,13 +10,15 @@ resource "aws_security_group" "public_ec2_sg" {
     to_port     = 22
     protocol    = "tcp"
     cidr_blocks = [var.allowed_ssh_ip]
+    description = "Allow SSH traffic from allowed IP only"
   }
 
   egress {
     from_port   = 0
     to_port     = 0
-    protocol    = "-1"
+    protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
+    description = "Allow all outbound traffic"
   }
 
 
@@ -37,14 +39,16 @@ resource "aws_security_group" "private_ec2_sg" {
     to_port         = 22
     protocol        = "tcp"
     security_groups = [aws_security_group.public_ec2_sg.id]
+    description     = "Allow SSH traffic from public EC2"
   }
 
 
   egress {
     from_port   = 0
     to_port     = 0
-    protocol    = "-1"
+    protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
+    description = "Allow all outbound traffic"
   }
 
 

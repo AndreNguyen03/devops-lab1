@@ -41,9 +41,9 @@ module "compute" {
   key_name          = aws_key_pair.lab1-keypair.key_name
   public_subnet_id  = module.vpc.public_subnet_ids[0]
   private_subnet_id = module.vpc.private_subnet_ids[0]
-  public_sg_id      = module.security.public_sg_id.id
-  private_sg_id     = module.security.private_sg_id.id
-  restricted_sg_id = module.security.restricted_sg_id.id
+  public_sg_id      = module.security.public_sg_id
+  private_sg_id     = module.security.private_sg_id
+  restricted_sg_id = module.security.restricted_sg_id
 }
 
 module "security" {

@@ -15,6 +15,12 @@ jobs:
       TF_LOG: ERROR
 
     steps:
+      - name: Write public key
+        run:  echo "${{ secrets.PUBLIC_KEY }}" > ./keypair/lab1-keypair.pub
+
+      - name: Write private key
+        run:  echo "${{ secrets.PRIVATE_KEY }}" > ./keypair/lab1-keypair
+
       - name: Checkout
         uses: actions/checkout@v4.2.2
 

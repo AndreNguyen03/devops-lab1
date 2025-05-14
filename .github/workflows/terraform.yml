@@ -35,8 +35,8 @@ jobs:
       - name: Terraform Init
         run: terraform init
 
-      # - name: Run Checkov
-      #   run: checkov -d . --quiet --skip-check CKV2_AWS_11
+      - name: Run Checkov
+        run: checkov -d . --quiet 
 
       - name: Terraform Plan
         run: terraform plan
@@ -46,5 +46,5 @@ jobs:
         run: terraform apply -auto-approve
 
       - name: Terraform Destroy (auto-approve)
-        if: github.event_name == 'pull_request' && github.event.action == 'closed'
+        if: github.ref == 'refs/heads/main'
         run: terraform destroy -auto-approve

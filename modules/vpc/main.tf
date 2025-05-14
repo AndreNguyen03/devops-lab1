@@ -37,12 +37,3 @@ resource "aws_internet_gateway" "main-igw" {
     }
 }
 
-resource "aws_security_group" "default" {
-  name        = "default-sg"
-  description = "Default security group"
-  vpc_id      = aws_vpc.main-vpc.id
-
-  tags = {
-    Name = "default-sg"
-  }
-}
